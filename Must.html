@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de MUST y MUSTN'T</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+        .exercise-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .timer {
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .question {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .images-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .image-box {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+        .image-box img {
+            max-width: 100%;
+            height: 120px;
+            object-fit: contain;
+        }
+        .image-label {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background-color: #333;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .match-dropdown {
+            margin-top: 5px;
+        }
+        select {
+            padding: 5px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 20px auto;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .results {
+            display: none;
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .score {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .feedback {
+            margin-top: 10px;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio de MUST y MUSTN'T</h1>
+    
+    <div class="timer" id="timer">Tiempo: 00:00</div>
+    
+    <div class="exercise-container">
+        <h2>Task 1: Complete each sentence with MUST or MUSTN'T. Then, match the sentences with the pictures.</h2>
+        
+        <div class="images-grid">
+            <div class="image-box">
+                <div class="image-label">K</div>
+                <img src="https://live.staticflickr.com/3232/2389085591_8a896b1cf9_z.jpg" alt="Niño estudiando en un escritorio">
+            </div>
+            <div class="image-box">
+                <div class="image-label">A</div>
+                <img src="https://previews.123rf.com/images/thodoristibilis/thodoristibilis1407/thodoristibilis140700001/29646007-paciente-hombre-triste-con-el-term%C3%B3metro-en-la-boca-indica-alta-temperatura-bufanda-verde-y-una.jpg" alt="Hombre con termómetro">
+            </div>
+            <div class="image-box">
+                <div class="image-label">B</div>
+                <img src="https://us.123rf.com/450wm/zhanna26/zhanna261909/zhanna26190900026/131028012-mantenga-la-se%C3%B1al-de-silencio-tranquilizarse-vector-plano-simple-aislado-en-blanco.jpg" alt="Hombre en traje rojo">
+            </div>
+            <div class="image-box">
+                <div class="image-label">C</div>
+                <img src="https://thumbs.dreamstime.com/b/un-lindo-ni%C3%B1o-feliz-come-verduras-de-ensalada-159774440.jpg" alt="Emoji sonriente con frutas">
+            </div>
+            <div class="image-box">
+                <div class="image-label">I</div>
+                <img src="https://media.istockphoto.com/id/1441382312/es/vector/lindo-ni%C3%B1o-cepill%C3%A1ndose-los-dientes-en-la-parte-delantera-del-fregadero-ilustraci%C3%B3n-de.jpg?s=612x612&w=0&k=20&c=jUpZmjkky0RBID-aHqY6kmmBsZsjR4qdVageumZu-jQ=" alt="Persona lavándose las manos">
+            </div>
+            <div class="image-box">
+                <div class="image-label">D</div>
+                <img src="https://static.vecteezy.com/system/resources/previews/008/950/699/non_2x/cute-young-boy-washing-hands-with-antibacterial-soap-and-running-water-under-faucet-at-the-sink-as-prevention-against-virus-and-infection-and-personal-hygiene-vector.jpg" alt="Manos lavándose">
+            </div>
+            <div class="image-box">
+                <div class="image-label">H</div>
+                <img src="https://img.freepik.com/vector-premium/detener-concepto-bocadillos-basura-comida-rapida_165488-2774.jpg" alt="Comida rápida y emoji negativo">
+            </div>
+            <div class="image-box">
+                <div class="image-label">E</div>
+                <img src="https://thumbs.dreamstime.com/b/ni%C3%B1o-del-muchacho-que-se-prepara-para-dormir-hora-de-acostarse-en-su-cama-82200416.jpg" alt="Niño en cama con reloj">
+            </div>
+            <div class="image-box">
+                <div class="image-label">G</div>
+                <img src="https://www.soyvisual.org/sites/default/files/styles/facebook_og/public/images/sheets/212_recoger_el_cuarto.jpg?itok=zbl2K2DK" alt="Persona limpiando">
+            </div>
+            <div class="image-box">
+                <div class="image-label">F</div>
+                <img src="https://img.freepik.com/vector-premium/nino-enojado-gritando-amigo-ninos-son-intimidados-ilustracion-vectorial_181870-286.jpg" alt="Persona cepillándose los dientes">
+            </div>
+        </div>
+        
+        <div class="questions">
+            <div class="question">
+                <p>1. It is 11 p.m.! You 
+                    <select id="answer1">
+                        <option value="">Selecciona</option>
+                        <option value="must">MUST</option>
+                        <option value="mustn't">MUSTN'T</option>
+                    </select> 
+                    go to bed!
+                </p>
+                <select id="match1" class="match-dropdown">
+                    <option value="">Selecciona imagen</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="G">G</option>
+                    <option value="H">H</option>
+                    <option value="I">I</option>
+                    <option value="K">K</option>
+                </select>
+            </div>
+            
+            <div class="question">
+                <p>2. You 
+                    <select id="answer2">
+                        <option value="">Selecciona</option>
+                        <option value="must">MUST</option>
+                        <option value="mustn't">MUSTN'T</option>
+                    </select> 
+                    eat fruit and vegetables. It is good for you!
+                </p>
+                <select id="match2" class="match-dropdown">
+                    <option value="">Selecciona imagen</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="G">G</option>
+                    <option value="H">H</option>
+                    <option value="I">I</option>
+                    <option value="K">K</option>
+                </select>
+            </div>
+            
+            <div class="question">
+                <p>3. You 
+                    <select id="answer3">
+                        <option value="">Selecciona</option>
+                        <option value="must">MUST</option>
+                        <option value="mustn't">MUSTN'T</option>
+                    </select> 
+                    eat junk food (hamburgers, chips, pizza, ...). It is bad for you!
+                </p>
+                <select id="match3" class="match-dropdown">
+                    <option value="">Selecciona imagen</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="G">G</option>
+                    <option value="H">H</option>
+                    <option value="I">I</option>
+                    <option value="K">K</option>
+                </select>
+            </div>
+            
+            <div class="question">
+                <p>4. He is sick. He 
+                    <select id="answer4">
+                        <option value="">Selecciona</option>
+                        <option value="must">MUST</option>
+                        <option value="mustn't">MUSTN'T</option>
+                    </select> 
+                    go to the doctor's.
+                </p>
+                <select id="match4" class="match-dropdown">
+                    <option value="">Selecciona imagen</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="G">G</option>
+                    <option value="H">H</option>
+                    <option value="I">I</option>
+                    <option value="K">K</option>
+                </select>
+            </div>
+            
+            <div class="question">
+                <p>5. Children 
+                    <select id="answer5">
+                        <option value="">Selecciona</option>
+                        <option value="must">MUST</option>
+                        <option value="mustn't">MUSTN'T</option>
+                    </select> 
+                    be rude.
+                </p>
+                <select id="match5" class="match-dropdown">
+                    <option value="">Selecciona imagen</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="G">G</option>
+                    <option value="H">H</option>
+                    <option value="I">I</option>
+                    <option value="K">K</option>
+                </select>
+            </div>
+            
+            <div class="question">
+                <p>6. You 
+                    <select id="answer6">
+                        <option value="">Selecciona</option>
+                        <option value="must">MUST</option>
+                        <option value="mustn't">MUSTN'T</option>
+                    </select> 
+                    make noise in a church. You 
+                    <select id="answer6b">
+                        <option value="">Selecciona</option>
+                        <option value="must">MUST</option>
+                        <option value="mustn't">MUSTN'T</option>
+                    </select> 
+                    be silent.
+                </p>
+                <select id="match6" class="match-dropdown">
+                    <option value="">Selecciona imagen</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="G">G</option>
+                    <option value="H">H</option>
+                    <option value="I">I</option>
+                    <option value="K">K</option>
+                </select>
+            </div>
+            
+            <div class="question">
+                <p>7. You 
+                    <select id="answer7">
+                        <option value="">Selecciona</option>
+                        <option value="must">MUST</option>
+                        <option value="mustn't">MUSTN'T</option>
+                    </select> 
+                    write on the table!
+                </p>
+                <select id="match7" class="match-dropdown">
+                    <option value="">Selecciona imagen</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="G">G</option>
+                    <option value="H">H</option>
+                    <option value="I">I</option>
+                    <option value="K">K</option>
+                </select>
+            </div>
+            
+            <div class="question">
+                <p>8. You 
+                    <select id="answer8">
+                        <option value="">Selecciona</option>
+                        <option value="must">MUST</option>
+                        <option value="mustn't">MUSTN'T</option>
+                    </select> 
+                    brush your teeth before going to bed!
+                </p>
+                <select id="match8" class="match-dropdown">
+                    <option value="">Selecciona imagen</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="G">G</option>
+                    <option value="H">H</option>
+                    <option value="I">I</option>
+                    <option value="K">K</option>
+                </select>
+            </div>
+            
+            <div class="question">
+                <p>9. I 
+                    <select id="answer9">
+                        <option value="">Selecciona</option>
+                        <option value="must">MUST</option>
+                        <option value="mustn't">MUSTN'T</option>
+                    </select> 
+                    wash my hands before having dinner.
+                </p>
+                <select id="match9" class="match-dropdown">
+                    <option value="">Selecciona imagen</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="G">G</option>
+                    <option value="H">H</option>
+                    <option value="I">I</option>
+                    <option value="K">K</option>
+                </select>
+            </div>
+            
+            <div class="question">
+                <p>10. Your bedroom is a mess! You 
+                    <select id="answer10">
+                        <option value="">Selecciona</option>
+                        <option value="must">MUST</option>
+                        <option value="mustn't">MUSTN'T</option>
+                    </select> 
+                    tidy it now!
+                </p>
+                <select id="match10" class="match-dropdown">
+                    <option value="">Selecciona imagen</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="G">G</option>
+                    <option value="H">H</option>
+                    <option value="I">I</option>
+                    <option value="K">K</option>
+                </select>
+            </div>
+        </div>
+        
+        <button id="checkAnswers">Verificar Respuestas</button>
+        
+        <div id="results" class="results">
+            <div class="score" id="score"></div>
+            <div id="timeResult"></div>
+            <div class="feedback" id="feedback"></div>
+        </div>
+    </div>
+    
+    <script>
+        // Respuestas correctas según lo proporcionado por el usuario
+        const correctAnswers = {
+            answer1: "must",
+            answer2: "must",
+            answer3: "mustn't",
+            answer4: "must",
+            answer5: "mustn't",
+            answer6: "mustn't",
+            answer6b: "must",
+            answer7: "mustn't",
+            answer8: "must",
+            answer9: "must",
+            answer10: "must"
+        };
+        
+        // Emparejamientos correctos según lo proporcionado por el usuario
+        const correctMatches = {
+            match1: "E",
+            match2: "C",
+            match3: "H",
+            match4: "A",
+            match5: "F",
+            match6: "B",
+            match7: "K",
+            match8: "I",
+            match9: "D",
+            match10: "G"
+        };
+        
+        // Iniciar cronómetro
+        let startTime = new Date();
+        let timerInterval;
+        
+        function updateTimer() {
+            const currentTime = new Date();
+            const elapsedTime = Math.floor((currentTime - startTime) / 1000);
+            const minutes = Math.floor(elapsedTime / 60).toString().padStart(2, '0');
+            const seconds = (elapsedTime % 60).toString().padStart(2, '0');
+            document.getElementById('timer').textContent = `Tiempo: ${minutes}:${seconds}`;
+        }
+        
+        // Iniciar el cronómetro
+        timerInterval = setInterval(updateTimer, 1000);
+        updateTimer();
+        
+        // Verificar respuestas
+        document.getElementById('checkAnswers').addEventListener('click', function() {
+            // Detener el cronómetro
+            clearInterval(timerInterval);
+            
+            // Calcular tiempo total
+            const endTime = new Date();
+            const totalTime = Math.floor((endTime - startTime) / 1000);
+            const minutes = Math.floor(totalTime / 60).toString().padStart(2, '0');
+            const seconds = (totalTime % 60).toString().padStart(2, '0');
+            
+            // Verificar respuestas
+            let correctCount = 0;
+            let totalQuestions = 0;
+            let feedback = "";
+            
+            // Verificar respuestas de MUST/MUSTN'T
+            for (const [id, correctAnswer] of Object.entries(correctAnswers)) {
+                const userAnswer = document.getElementById(id).value;
+                if (userAnswer === correctAnswer) {
+                    correctCount++;
+                }
+                totalQuestions++;
+                
+                feedback += `<p>Pregunta ${id.replace('answer', '').replace('b', ' (parte 2)')}: `;
+                if (userAnswer === correctAnswer) {
+                    feedback += `<span class="correct">Correcto</span>`;
+                } else {
+                    feedback += `<span class="incorrect">Incorrecto. La respuesta correcta es ${correctAnswer.toUpperCase()}</span>`;
+                }
+                feedback += `</p>`;
+            }
+            
+            // Verificar emparejamientos
+            for (const [id, correctMatch] of Object.entries(correctMatches)) {
+                const userMatch = document.getElementById(id).value;
+                if (userMatch === correctMatch) {
+                    correctCount++;
+                }
+                totalQuestions++;
+                
+                feedback += `<p>Emparejamiento ${id.replace('match', '')}: `;
+                if (userMatch === correctMatch) {
+                    feedback += `<span class="correct">Correcto</span>`;
+                } else {
+                    feedback += `<span class="incorrect">Incorrecto. La imagen correcta es ${correctMatch}</span>`;
+                }
+                feedback += `</p>`;
+            }
+            
+            // Calcular puntuación
+            const score = Math.round((correctCount / totalQuestions) * 100);
+            
+            // Mostrar resultados
+            document.getElementById('score').textContent = `Puntuación: ${score}% (${correctCount}/${totalQuestions})`;
+            document.getElementById('timeResult').textContent = `Tiempo total: ${minutes}:${seconds}`;
+            document.getElementById('feedback').innerHTML = feedback;
+            document.getElementById('results').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
